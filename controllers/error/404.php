@@ -1,1 +1,2 @@
-<?= 'Page not exists! 404!';
+<?php
+load_view('error/404');

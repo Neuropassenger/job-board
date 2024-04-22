@@ -1,1 +1,2 @@
-<?= 'listings create';
+<?php
+load_view('listings/create');
