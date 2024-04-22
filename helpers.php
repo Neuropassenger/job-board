@@ -16,7 +16,12 @@ function base_path($path = '') {
  * @return void
  */
 function load_view($name) {
-    require base_path('views/' . $name . '.php');
+    $view_path = base_path('views/' . $name . '.php');
+    if (file_exists($view_path)) {
+        require $view_path;
+    } else {
+        echo "View '{$name}' not found!";
+    }
 }
 
 /** 
@@ -26,5 +31,10 @@ function load_view($name) {
  * @return void
  */
 function load_partial($name) {
-    require base_path('views/partials/' . $name . '.php');
+    $patial_path = base_path('views/partials/' . $name . '.php');
+    if (file_exists($patial_path)) {
+        require $patial_path;
+    } else {
+        echo "Partial '{$name}' not found!";
+    }
 }
