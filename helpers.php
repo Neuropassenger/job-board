@@ -14,12 +14,14 @@ function base_path($path = '') {
  * Load a view
  * 
  * @param string $name
+ * @param array $data
  * @return void
  */
-function load_view($name) {
+function load_view($name, $data) {
     $view_path = base_path('views/' . $name . '.php');
 
     if (file_exists($view_path)) {
+        extract($data);
         require $view_path;
     } else {
         echo "View '{$name}' not found!";
