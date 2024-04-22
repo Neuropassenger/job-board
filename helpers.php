@@ -18,3 +18,13 @@ function base_path($path = '') {
 function load_view($name) {
     require base_path('views/' . $name . '.php');
 }
+
+/** 
+ * Load a partial
+ * 
+ * @param string $name
+ * @return void
+ */
+function load_partial($name) {
+    require base_path('views/partials/' . $name . '.php');
+}
