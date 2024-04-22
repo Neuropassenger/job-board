@@ -67,3 +67,13 @@ function inspect_and_die($value) {
     die(var_dump($value));
     echo '</pre>';
 }
+
+/**
+ * Format salary 
+ * 
+ * @param string $value
+ * @return string formatted salary
+ */
+function format_salary($value) {
+    return '$ ' . number_format($value);
+}
