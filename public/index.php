@@ -1,3 +1,3 @@
 <?php
 require '../helpers.php';
-require base_path('views/home.php');
+load_view('home');
