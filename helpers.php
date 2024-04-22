@@ -17,7 +17,7 @@ function base_path($path = '') {
  * @param array $data
  * @return void
  */
-function load_view($name, $data) {
+function load_view($name, $data = []) {
     $view_path = base_path('views/' . $name . '.php');
 
     if (file_exists($view_path)) {
