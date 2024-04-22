@@ -1,1 +1,2 @@
-<?= "Hello world";
+<?php
+require '../views/home.php';
