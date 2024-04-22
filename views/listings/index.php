@@ -1,6 +1,5 @@
 <?php load_partial('head'); ?>
 <?php load_partial('navbar'); ?>
-<?php load_partial('showcase-search'); ?>
 <?php load_partial('top-banner'); ?>
 
 <!-- Job Listings -->
