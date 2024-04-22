@@ -1,0 +1,6 @@
+name: job-board
+recipe: lamp
+config:
+  webroot: public
+  php: '8.2'
+  database: mysql:8.0
