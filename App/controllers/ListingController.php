@@ -71,7 +71,7 @@ class ListingController {
      */
     public function store() {
         // Sanitizing
-        
+
         // Level 1
         $allowed_fields = [
             'title',
@@ -100,12 +100,13 @@ class ListingController {
             'title',
             'description',
             'email',
-            'city'
+            'city',
+            'salary'
         ];
 
         $errors = [];
 
-        foreach($required_fields as $field_key) {
+        foreach ($required_fields as $field_key) {
             if (empty($new_listings_data[$field_key]) || !Validation::string($new_listings_data[$field_key])) {
                 $errors[$field_key] = ucfirst($field_key) . ' is required';
             }
@@ -113,13 +114,38 @@ class ListingController {
 
         if (!empty($errors)) {
             // Reload view with errors
+
             load_view('listings/create', [
                 'errors' => $errors,
                 'listing' => $new_listings_data
             ]);
         } else {
             // Submit data
-            echo "Success";
+
+            $field_keys = [];
+            $field_values = [];
+
+            foreach ($new_listings_data as $key => $value) {
+                $field_keys[] = $key;
+                
+                if ($value === '') {
+                    $field_values[] = null;
+                } else {
+                    $field_values[] = ':' . $key;
+                }
+            }
+
+            $field_keys_str = implode(', ', $field_keys);
+            $field_values_str = implode(', ', $field_values);
+
+            $query = "INSERT INTO `listings` ({$field_keys_str}) VALUES ({$field_values_str})";
+
+            inspect($new_listings_data);
+            inspect($query);
+
+            $this->db->query($query, $new_listings_data);
+
+            redirect('/listings');
         }
     }
 }
