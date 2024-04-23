@@ -4,8 +4,9 @@
 //require base_path('prepare_database.php');
 
 require __DIR__ . '/../vendor/autoload.php';
-
 require '../helpers.php';
+
+use Framework\Router;
 
 // spl_autoload_register(function($class) {
 //     $path = base_path('Framework/' . $class . '.php');
