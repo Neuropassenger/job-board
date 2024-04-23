@@ -7,11 +7,19 @@ use Framework\Database;
 class ListingController {
     protected $db;
 
+    /**
+     * A constructor for the ListingController class
+     */
     public function __construct() {
         $config = require base_path('config/db.php');
         $this->db = new Database($config);
     }
 
+    /**
+     * Load a view for the Lsitings Page
+     *
+     * @return void
+     */
     public function index() {
         $listings = $this->db->query("SELECT * FROM `listings` LIMIT 6")->fetchAll();
 
@@ -20,10 +28,20 @@ class ListingController {
         ]);
     }
 
+    /**
+     * Load a view for the Create Listing Page
+     *
+     * @return void
+     */
     public function create() {
         load_view('listings/create');
     }
 
+    /**
+     * Load a view for the Single Listing Page
+     *
+     * @return void
+     */
     public function show() {
         $id = $_GET['id'] ?? '';
 
