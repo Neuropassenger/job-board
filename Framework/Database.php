@@ -2,7 +2,7 @@
 
 namespace Framework;
 
-use PDO;
+use PDO, PDOException, Exception;
 
 class Database {
     public $connection;
