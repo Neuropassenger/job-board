@@ -1,0 +1,16 @@
+{
+    "name": "neuropassenger/job-board",
+    "description": "Job listing application",
+    "authors": [
+        {
+            "name": "Oleg Sokolov",
+            "email": "turgenoid@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
