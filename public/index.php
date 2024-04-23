@@ -1,10 +1,9 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+require '../helpers.php';
 
 // Prepare the database for operation, if required
 //require base_path('prepare_database.php');
-
-require __DIR__ . '/../vendor/autoload.php';
-require '../helpers.php';
 
 use Framework\Router;
 

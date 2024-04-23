@@ -28,6 +28,7 @@ if (table_exists($pdo, 'listings') === 0) {
         `salary` VARCHAR(45) NULL,
         `tags` VARCHAR(255) NULL,
         `company` VARCHAR(255) NULL,
+        `address` VARCHAR(255) NULL,
         `city` VARCHAR(45) NULL,
         `state` VARCHAR(45) NULL,
         `phone` VARCHAR(45) NULL,
