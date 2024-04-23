@@ -4,8 +4,13 @@
 //require base_path('prepare_database.php');
 
 require '../helpers.php';
-require base_path('Framework/Router.php');
-require base_path('Framework/Database.php');
+
+spl_autoload_register(function($class) {
+    $path = base_path('Framework/' . $class . '.php');
+    if (file_exists($path)) {
+        require $path;
+    }
+});
 
 // Initialize the router
 $router = new Router();
