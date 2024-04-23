@@ -9,7 +9,8 @@
 
 
 
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings/<?= $listing->id; ?>">
+        <input type="hidden" name="_method" value="PUT">
         <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
         Job Info
         </h2>
