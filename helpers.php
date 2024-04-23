@@ -77,3 +77,13 @@ function inspect_and_die($value) {
 function format_salary($value) {
     return '$ ' . number_format($value);
 }
+
+/** 
+ * Sanitize data
+ * 
+ * @param string $dirty
+ * @return string
+ */
+function sanitize($dirty) {
+    return filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS);
+}
