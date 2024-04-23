@@ -70,7 +70,9 @@ class ListingController {
      * @return void
      */
     public function store() {
-        // First level of security
+        // Sanitizing
+        
+        // Level 1
         $allowed_fields = [
             'title',
             'description',
@@ -90,9 +92,34 @@ class ListingController {
 
         $new_listings_data['user_id'] = 1;
 
-        // Second level of security
+        // Level 2
         $new_listings_data = array_map('sanitize', $new_listings_data);
 
-        inspect_and_die($new_listings_data);
+        // Validation
+        $required_fields = [
+            'title',
+            'description',
+            'email',
+            'city'
+        ];
+
+        $errors = [];
+
+        foreach($required_fields as $field_key) {
+            if (empty($new_listings_data[$field_key]) || !Validation::string($new_listings_data[$field_key])) {
+                $errors[$field_key] = ucfirst($field_key) . ' is required';
+            }
+        }
+
+        if (!empty($errors)) {
+            // Reload view with errors
+            load_view('listings/create', [
+                'errors' => $errors,
+                'listing' => $new_listings_data
+            ]);
+        } else {
+            // Submit data
+            echo "Success";
+        }
     }
 }
