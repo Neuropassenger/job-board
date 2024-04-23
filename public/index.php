@@ -4,8 +4,8 @@
 //require base_path('prepare_database.php');
 
 require '../helpers.php';
-require base_path('Router.php');
-require base_path('Database.php');
+require base_path('Framework/Router.php');
+require base_path('Framework/Database.php');
 
 // Initialize the router
 $router = new Router();
