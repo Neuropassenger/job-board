@@ -19,6 +19,7 @@ class Session {
      * 
      * @param string $key
      * @param mixed $value
+     * 
      * @return void
      */
     public static function set($key, $value) {
@@ -30,6 +31,7 @@ class Session {
      * 
      * @param string $key
      * @param mixed $default
+     * 
      * @return mixed
      */
     public static function get($key, $default = null) {
@@ -40,6 +42,7 @@ class Session {
      * Check if session key exists
      * 
      * @param string $key
+     * 
      * @return bool
      */
     public static function has($key) {
@@ -50,6 +53,7 @@ class Session {
      * Clear session by key
      * 
      * @param string $key
+     * 
      * @return void
      */
     public static function clear($key) {
@@ -66,5 +70,31 @@ class Session {
     public static function clear_all() {
         session_unset();
         session_destroy();
+    }
+
+    /**
+     * Set a flash message
+     * 
+     * @param string $key
+     * @param string $message
+     * 
+     * @return void
+     */
+    public static function set_flash_message($key, $message) {
+        self::set('flash_' . $key, $message);
+    }
+
+    /**
+     * Get a flash message and unset
+     * 
+     * @param string $key
+     * @param mixed $default
+     * 
+     * @return string
+     */
+    public static function get_flash_message($key, $default = null) {
+        $message = self::get('flash_' . $key, $default);
+        self::clear('flash_' . $key);
+        return $message;
     }
 }
