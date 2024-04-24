@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Framework\Database;
 use Framework\Validation;
+use Framework\Session;
 
 class UserController {
     protected $db;
@@ -70,8 +71,6 @@ class UserController {
 
         $user = $this->db->query("SELECT * FROM `users` WHERE email = :email", $params)->fetch();
 
-        //inspect_and_die($user);
-
         if ($user) {
             $errors['email'] = 'Email already exists';
         }
@@ -99,6 +98,18 @@ class UserController {
         ];
 
         $this->db->query("INSERT INTO `users` (name, email, city, state, password) VALUES (:name, :email, :city, :state, :password);", $params);
+
+        // Get new user id
+        $user_id = $this->db->connection->lastInsertId();
+
+        Session::set('user', [
+            'id' => $user_id,
+            'name' => $name,
+            'email' => $email,
+            'city' => $state,
+            'state' => $state
+        ]);
+
         redirect('/');
     }
 }

@@ -1,14 +1,15 @@
 <?php
-
-session_start();
-
 require __DIR__ . '/../vendor/autoload.php';
+
+use Framework\Router;
+use Framework\Session;
+
+Session::start();
+
 require '../helpers.php';
 
 // Prepare the database for operation, if required
 //require base_path('prepare_database.php');
-
-use Framework\Router;
 
 // Initialize the router
 $router = new Router();
