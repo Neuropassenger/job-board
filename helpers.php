@@ -34,10 +34,11 @@ function load_view($name, $data = []) {
  * @param string $name
  * @return void
  */
-function load_partial($name) {
+function load_partial($name, $data = []) {
     $patial_path = base_path('App/views/partials/' . $name . '.php');
     
     if (file_exists($patial_path)) {
+        extract($data);
         require $patial_path;
     } else {
         echo "Partial '{$name}' not found!";
