@@ -115,6 +115,10 @@ class ListingController {
             }
         }
 
+        if(!empty($new_listings_data['salary']) && !Validation::number($new_listings_data['salary'])) {
+            $errors['salary'] = 'Salary must be an integer number';
+        }
+
         if (!empty($errors)) {
             // Reload view with errors
 
@@ -282,6 +286,10 @@ class ListingController {
             if (empty($new_listings_data[$field_key]) || !Validation::string($new_listings_data[$field_key])) {
                 $errors[$field_key] = ucfirst($field_key . ' is required');
             }
+        }
+
+        if(!empty($new_listings_data['salary']) && !Validation::number($new_listings_data['salary'])) {
+            $errors['salary'] = 'Salary must be an integer number';
         }
 
         if (!empty($errors)) {

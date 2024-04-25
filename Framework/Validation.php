@@ -34,6 +34,19 @@ class Validation {
     }
 
     /**
+     * Validate a number
+     * 
+     * @param mixed $value
+     * 
+     * @return book
+     */
+    public static function number($value) {
+        $value = trim($value);
+        
+        return filter_var($value, FILTER_VALIDATE_INT);
+    }
+
+    /**
      * Match a value against another
      * 
      * @param string $value1
