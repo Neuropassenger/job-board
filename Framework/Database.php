@@ -9,6 +9,7 @@ class Database {
 
     /**
      * Constructor for Database class
+     * 
      * @param array $config
      */
     public function __construct($config) {
@@ -30,7 +31,9 @@ class Database {
      * 
      * @param string $query
      * @param array $params
+     * 
      * @return PDOStatement
+     * 
      * @throws PDOException
      */
     public function query($query, $params = []) {

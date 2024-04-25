@@ -9,6 +9,7 @@ class Validation {
      * @param string $value
      * @param int $min
      * @param int $max
+     * 
      * @return bool
      */
     public static function string($value, $min = 1, $max = INF) {
@@ -25,6 +26,7 @@ class Validation {
      * Validate email address
      * 
      * @param string $value
+     * 
      * @return mixed
      */
     public static function email($value) {
@@ -38,7 +40,7 @@ class Validation {
      * 
      * @param mixed $value
      * 
-     * @return book
+     * @return mixed
      */
     public static function number($value) {
         $value = trim($value);

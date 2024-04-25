@@ -4,6 +4,7 @@
  * Get the base path
  * 
  * @param string @path
+ * 
  * @return string
  */
 function base_path($path = '') {
@@ -15,6 +16,7 @@ function base_path($path = '') {
  * 
  * @param string $name
  * @param array $data
+ * 
  * @return void
  */
 function load_view($name, $data = []) {
@@ -32,6 +34,7 @@ function load_view($name, $data = []) {
  * Load a partial
  * 
  * @param string $name
+ * 
  * @return void
  */
 function load_partial($name, $data = []) {
@@ -49,6 +52,7 @@ function load_partial($name, $data = []) {
  * Inspect a value(s)
  * 
  * @param mixed $value
+ * 
  * @return void
  */
 function inspect($value) {
@@ -61,6 +65,7 @@ function inspect($value) {
  * Inspect value(s) and die
  * 
  * @param mixed $value
+ * 
  * @return void
  */
 function inspect_and_die($value) {
@@ -73,6 +78,7 @@ function inspect_and_die($value) {
  * Format salary 
  * 
  * @param string $value
+ * 
  * @return string formatted salary
  */
 function format_salary($value) {
@@ -83,6 +89,7 @@ function format_salary($value) {
  * Sanitize data
  * 
  * @param string $dirty
+ * 
  * @return string
  */
 function sanitize($dirty) {
@@ -93,6 +100,7 @@ function sanitize($dirty) {
  * Redirect to a given url
  * 
  * @param string $url
+ * 
  * @return void
  */
 function redirect($url) {

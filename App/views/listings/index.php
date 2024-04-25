@@ -6,13 +6,13 @@
 <section>
     <div class="container mx-auto p-4 mt-4">
         <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
-            <?php if(!empty($keywords) && !empty($location)): ?>
+            <?php if (!empty($keywords) && !empty($location)) : ?>
                 Search results for "<?= htmlspecialchars($keywords); ?>" in "<?= htmlspecialchars($location); ?>"
-            <?php elseif(!empty($keywords)): ?>
+            <?php elseif (!empty($keywords)) : ?>
                 Search results for "<?= htmlspecialchars($keywords); ?>"
-            <?php elseif(!empty($location)): ?>
+            <?php elseif (!empty($location)) : ?>
                 Search results in "<?= htmlspecialchars($location); ?>"
-            <?php else: ?>
+            <?php else : ?>
                 All Jobs
             <?php endif; ?>
         </div>
