@@ -44,6 +44,7 @@ class ListingController {
      * Load a view for the Single Listing Page
      *
      * @param array $params
+     * 
      * @return void
      */
     public function show($params) {
@@ -158,6 +159,7 @@ class ListingController {
      * Delete a listing
      * 
      * @param array $params
+     * 
      * @return void
      */
     public function destroy($params) {
@@ -193,6 +195,7 @@ class ListingController {
      * Show the listing edit form
      *
      * @param array $params
+     * 
      * @return void
      */
     public function edit($params) {
@@ -227,6 +230,7 @@ class ListingController {
      * Update a listing
      * 
      * @param array @params
+     * 
      * @return void
      */
     public function update($params) {
