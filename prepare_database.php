@@ -1,10 +1,7 @@
 <?php
 
-$host = 'database';
-$port = '3306';
-$charset = 'utf8';
-$db_name = $username = $password = 'lamp';
-$dsn = "mysql:host={$host};port={$port};charset={$charset};dbname={$db_name}";
+$db_config = require base_path('config/db.php');
+$dsn = "mysql:host={$db_config['host']};port={$db_config['port']};charset={$db_config['charset']};dbname={$db_config['db_name']}";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -12,7 +9,7 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $username, $password, $options);
+    $pdo = new PDO($dsn, $db_config['username'], $db_config['password'], $options);
 } catch (PDOException $e) {
     echo 'Error: ' . $e->getMessage();
     die;
@@ -88,6 +85,7 @@ if (table_exists($pdo, 'listings') === 1 && table_exists($pdo, 'users') === 1) {
  *
  * @param PDO $pdo PDO object for interacting with the database
  * @param string $table_name
+ * 
  * @return int returns 1 if the table exists, 0 if the table does not exist, and -1 if an error occurs
  */
 function table_exists($pdo, $table_name) {
@@ -108,6 +106,7 @@ function table_exists($pdo, $table_name) {
  *
  * @param PDO $pdo
  * @param string $sql
+ * 
  * @return void
  */
 function create_table($pdo, $sql) {
