@@ -76,7 +76,7 @@ function inspect_and_die($value) {
  * @return string formatted salary
  */
 function format_salary($value) {
-    return '$ ' . number_format($value);
+    return '$ ' . number_format((float) $value);
 }
 
 /** 
