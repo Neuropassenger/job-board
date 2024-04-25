@@ -103,6 +103,7 @@ class ListingController {
             'description',
             'email',
             'city',
+            'state',
             'salary'
         ];
 
